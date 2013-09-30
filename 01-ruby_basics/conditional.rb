@@ -41,7 +41,8 @@ else
   puts "some other number"
 end
 
-name = "Jorge"
+puts "Enter your name"
+name = gets.chomp
 unless name == "Juan"
   puts "You are not Juan"
 else
