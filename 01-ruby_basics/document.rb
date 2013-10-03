@@ -2,6 +2,25 @@ require 'pry'
 
 class Document
   attr_accessor :title, :author, :content
+
+  def initialize(title, author, content)
+    puts "Creating new document!"
+    @title = title
+    @author = author
+    @content = content
+  end
+
+  def words
+    @content.split
+  end
+
+  def to_s
+    "
+Title: #{@title}
+Author: #{@author}
+
+#{@content}"
+  end
 end
 
 doc = Document.new
