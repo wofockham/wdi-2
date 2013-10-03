@@ -25,36 +25,7 @@ end
 =end
 
 class MarxBrother
-
-  # vice getter
-  def vice
-    @vice
-  end
-
-  # vice setter
-  def vice=(v)
-    @vice = v
-  end
-
-  # instrument getter
-  def instrument
-    @instrument
-  end
-
-  # instrument setter
-  def instrument=(i)
-    @instrument = i
-  end
-
-  # year of birth getter
-  def year_of_birth
-    @year_of_birth
-  end
-
-  # year of birth getter
-  def year_of_birth=(yob)
-    @year_of_birth = yob
-  end
+  attr_accessor :vice, :instrument, :year_of_birth
 
   def age
     2013 - @year_of_birth.to_i
