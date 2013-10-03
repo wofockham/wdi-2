@@ -54,5 +54,41 @@ puts blend(smoothie_ingredients.keys)
 # Blend the the smoothie array
 
 class Blender
+  def initialize
+    @status = :off
+  end
+
+  def switch_on
+    @status = :on
+  end
+
+  def switch_off
+    @status = :off
+  end
+
+  def status
+    @status
+  end
+
+  def switch_flip
+    if @status == :on
+      @status = :off
+    else
+      @status = :on
+    end
+  end
+
+  def blend(ingredients)
+    if @status == :off
+      nil # Doesn't work if the blender is off
+    else
+      # Create an array of non-space characters.
+      chars = ingredients.join('').gsub(' ', '').split ''
+
+      # Return the shuffled array
+      chars.shuffle.join('')
+    end
+  end
 end
 
+binding.pry
