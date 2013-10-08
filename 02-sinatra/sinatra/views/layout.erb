@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <h1>Sinatra Calculator</h1>
+    <%= yield %>
+    <p>Change the URL to perform different calculations.</p>
+
+    <footer>
+      &copy; Copyright 2013
+      <%= Time.new.to_s %>
+    </footer>
+
+  </body>
+</html>

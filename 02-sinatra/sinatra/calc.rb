@@ -3,15 +3,32 @@ require 'sinatra'
 require 'sinatra/reloader'
 
 get '/multiply/:x/:y' do
-  result = params[:x].to_f * params[:y].to_f
-  "result is #{result}"
+  @x = params[:x].to_f
+  @y = params[:y].to_f
+  @operation = 'multiply'
+
+  @result = @x * @y
+  erb :calc
 end
 
 get '/divide/:x/:y' do
-  x = params[:x].to_f
-  y = params[:y].to_f
+  @x = params[:x].to_f
+  @y = params[:y].to_f
+  @operation = 'divide'
 
-  result = x / y
-  "result is #{result}"
+  @result = @x / @y
+  erb :calc
+end
+
+get '/' do
+  erb :form
+end
+
+get '/calc' do
+  binding.pry
+end
+
+get '/about' do
+  erb :about
 end
 
