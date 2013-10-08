@@ -1,0 +1,8 @@
+<form method="get" action="/">
+  <input name="symbol" placeholder="Enter stock symbol">
+  <input type="submit" value="Get price">
+</form>
+
+<% if @price %>
+  <p>The price for <%= @symbol %> is <%= @price %>.</p>
+<% end %>
