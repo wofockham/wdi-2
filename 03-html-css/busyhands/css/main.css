@@ -1,3 +1,8 @@
+.container {
+  width: 800px;
+  margin: auto;
+}
+
 body {
   margin: 0;
   font-family: Arial;
@@ -25,7 +30,47 @@ nav li a {
   text-decoration: none;
 }
 
-.container {
-  width: 960px;
-  margin: auto;
+.title {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.title h1 {
+  display: inline;
+  font-size: 300%;
+  margin-top: 0.5em;
+  font-style: italic;
+  letter-spacing: -5px;
+  line-height: 1;
+}
+
+.title h1 img {
+  float: left;
+  margin-right: 0.2em;
+}
+
+.social {
+  display: inline;
+  float: right;
+  margin-top: 5px;
+}
+
+.social ul {
+  display: inline;
+  padding-left: 0;
+  list-style: none;
+}
+
+.social ul li {
+  display: inline;
+  margin-left: 0.7em;
+}
+
+.social ul li img {
+  border-radius: 7px;
+  box-shadow: 0px 2px 5px #444;
+}
+
+.hero img {
+  box-shadow: 0px 10px 10px #000;
 }
