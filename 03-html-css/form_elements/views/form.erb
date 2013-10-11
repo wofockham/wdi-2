@@ -6,11 +6,33 @@
 You can put default content here
   </textarea>
 
+  <!-- select menus are supposed to be styled according to the operating
+  system it's being viewed in. if a client asks you to make it look the same
+  on all browsers and operating systems tell them it will cost 4 - 6 times as much. -->
+
+  <!-- selecting an option without a value sends the text of the option to the server -->
   <select name="input_select">
     <option value="some value">Some option</option>
     <option value="some other value">Some other option</option>
-    <option>Option without a value</option>
+    <option>Option without a value -- I AM SENT AS THE VALUE</option>
+    <option selected>This is the default selected value</option>
   </select>
+
+  <hr>
+  <!-- Unchecked checkboxes don't get sent back to the server -->
+  <input type="checkbox" name="input_checkbox" value="888">This is the text for the option
+  <input type="checkbox" name="input_checkbox2" value="some checkbox value"
+>This is some other option's text
+  <input type="checkbox" name="input_terms_consent" value="true" checked>I agree to the terms and conditions of this stupid site
+  <input type="checkbox" name="spam_me" value="true" checked>Yes! Send me heaps of spam
+
+  <hr>
+  <p>Radio buttons are like checkboxes but they're grouped by name and only one can be selected</p>
+  <input type="radio" name="input_radio" value="first">First option
+  <input type="radio" name="input_radio" value="second">Second option
+  <input type="radio" name="input_radio" value="third">Third option
+
+
 
   <input type="submit" value="Send">
   <!--
