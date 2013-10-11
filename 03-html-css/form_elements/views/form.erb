@@ -18,6 +18,13 @@ You can put default content here
     <option selected>This is the default selected value</option>
   </select>
 
+  <select name="input_select_multi" multiple>
+    <option disabled>Select your favourite Marx brother(s)</option>
+    <option>Groucho</option>
+    <option>Harpo</option>
+    <option>Chico</option>
+  </select>
+
   <hr>
   <!-- Unchecked checkboxes don't get sent back to the server -->
   <input type="checkbox" name="input_checkbox" value="888">This is the text for the option
@@ -31,8 +38,23 @@ You can put default content here
   <input type="radio" name="input_radio" value="first">First option
   <input type="radio" name="input_radio" value="second">Second option
   <input type="radio" name="input_radio" value="third">Third option
+  <input type="radio" name="typo_radio" value="fourth">Fourth option
+  <p>If you don't select ANY radio option none of them are sent back to the server</p>
 
+  <hr>
+  <input type="file" name="input_file">These are basically a goddamn nightmare, avoid
+  <hr>
+  <p>You can't see a hidden input</p>
+  <input type="hidden" name="input_hidden" value="some secret value, we often set these with Javascript">
+  <hr>
 
+  <h2>New HTML5 Inputs That Don't Work Everywhere</h2>
+  <input type="time" name="input_time" placeholder="Time">
+  <input type="date" name="input_date" placeholder="Date">
+
+  <input type="range" min="0" max="500" name="input_slider">
+
+  <hr>
 
   <input type="submit" value="Send">
   <!--
