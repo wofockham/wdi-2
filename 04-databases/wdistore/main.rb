@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+gem 'pg', '=0.15.1' # Only Joel requires this, comment it out in yours.
 require 'pg'
 require 'pry'
 
