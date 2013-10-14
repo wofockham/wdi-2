@@ -2,4 +2,6 @@
   <li><strong>Name</strong>: <%= @product['name'] %></li>
   <li><strong>Description</strong>: <p><%= @product['description'] %></p></li>
   <li><strong>Price</strong>: $<%= @product['price'] %></li>
+  <li><a href="/products/<%= @product['id'] %>/edit">Edit</a></li>
+  <li><a href="/products/<%= @product['id'] %>/delete">Delete</a></li>
 </ul>

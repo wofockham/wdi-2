@@ -1,0 +1,15 @@
+<h2>Enter your new product details</h2>
+<form method="post" action="/products/update">
+  <label for="name">Name:</label>
+  <input name="name" placeholder="Your product name here" value="<%= @product['name'] %>">
+
+  <label for="description">Description:</label>
+  <textarea name="description"><%= @product['description'] %></textarea>
+
+  <label for="price">Price:</label>
+  <input name="price" type="number" placeholder="Your product price here" step="0.01" value="<%= @product['price'] %>">
+
+  <input type="hidden" name="id" value="<%= @product['id'] %>">
+
+  <input type="submit" value="Create">
+</form>
