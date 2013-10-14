@@ -39,6 +39,16 @@ get '/products/:id/edit' do
   erb :productedit
 end
 
+post '/products/update' do
+  # Once again this will be all ruined by any quotes in the values.
+  query = "UPDATE products SET name='#{params[:name]}', description='#{params[:description]}', price='#{params[:price]}' WHERE id=#{params[:id]}"
+  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
+  connection.exec(query)
+  connection.close
+
+  redirect to "/products/#{params[:id]}"
+end
+
 get '/products/:id/delete' do
   # We don't need quotes around the id because it's numeric and that's okay with SQL
   query = "DELETE FROM products WHERE id=#{params[:id]}"
