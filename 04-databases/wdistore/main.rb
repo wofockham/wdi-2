@@ -5,9 +5,7 @@ require 'pg'
 require 'pry'
 
 get '/' do
-  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  @products = connection.exec('SELECT * FROM products')
-  connection.close
+  @products = query_db('SELECT * FROM products')
 
   erb :index
 end
@@ -23,28 +21,23 @@ post '/products/create' do
   # Because the 'quotes' around each of our values has a special meaning, we need to
   # 'escape' the quotes within our values by replacing ' with \\' using gsub
   query = "INSERT INTO products (name, description, price) VALUES ('#{params[:name].gsub(/'/, "\\'")}', '#{params[:description].gsub(/'/, "\\'")}', '#{params[:price]}')"
-  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  connection.exec(query)
-  connection.close
+  query_db(query)
   redirect to '/'
 end
 
 get '/products/:id/edit' do
   query = "SELECT * FROM products WHERE id=#{params[:id]}"
-  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  @product = connection.exec(query)
+  @product = query_db(query)
   @product = @product.first # Remember, exec() returns a collection, even for 1 item.
-  connection.close
 
   erb :productedit
 end
 
 post '/products/update' do
   # Once again this will be all ruined by any quotes in the values.
-  query = "UPDATE products SET name='#{params[:name]}', description='#{params[:description]}', price='#{params[:price]}' WHERE id=#{params[:id]}"
-  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  connection.exec(query)
-  connection.close
+  # Horrible unreadable gsub to the rescue again >: |
+  query = "UPDATE products SET name='#{params[:name].gsub(/'/, "\\'")}', description='#{params[:description].gsub(/'/, "\\'")}', price='#{params[:price].gsub(/'/, "\\'")}' WHERE id=#{params[:id]}"
+  query_db(query)
 
   redirect to "/products/#{params[:id]}"
 end
@@ -52,17 +45,13 @@ end
 get '/products/:id/delete' do
   # We don't need quotes around the id because it's numeric and that's okay with SQL
   query = "DELETE FROM products WHERE id=#{params[:id]}"
-  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  connection.exec(query)
-  connection.close
+  query_db(query)
   redirect to '/'
 end
 
 get '/products/:id' do
   # Gross, we are repeating ourselves.
-  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  @product = connection.exec("SELECT * FROM products WHERE id=#{params[:id]}")
-  connection.close
+  @product = query_db("SELECT * FROM products WHERE id=#{params[:id]}")
   @product = @product.first
 
   if @product.nil?
@@ -70,4 +59,11 @@ get '/products/:id' do
   end
 
   erb :productview
+end
+
+def query_db(query)
+  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
+  result = connection.exec(query)
+  connection.close
+  result
 end
