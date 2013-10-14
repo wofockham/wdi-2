@@ -6,7 +6,16 @@ require 'pry'
 
 get '/' do
   connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
-  connection.exec('SELECT * FROM products')
+  @products = connection.exec('SELECT * FROM products')
 
   erb :index
+end
+
+get '/product/:id' do
+  # Gross, we are repeating ourselves.
+  connection = PG.connect(:dbname => 'wdistore', :host => 'localhost')
+  @product = connection.exec("SELECT * FROM products WHERE id=#{params[:id]}")
+  @product = @product.first
+
+  erb :productview
 end
