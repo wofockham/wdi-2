@@ -1,0 +1,19 @@
+<% if params[:family] %>
+  <h1>Family <%= params[:family] %></h1>
+<% end %>
+<% @rows.each do |row| %>
+  <section>
+    <img src='<%= row['image'] %>'>
+    <p><strong>Name:</strong> <%= row['name'] %></p>
+    <p><strong>Family:</strong> <em><a href="/butterflies/<%= row['family'] %>"><%= row['family'] %></a></em></p>
+    <p><strong>Learn more:</strong> <a href="http://en.wikipedia.org/w/index.php?search=<%= URI::encode row['name'] %>">Wikipedia</a>
+
+    <p>
+      <a href='/butterflies/<%= row['id'] %>/edit/'><button>Edit</button></a>
+    </p>
+
+    <form action='/butterflies/<%= row['id'] %>/delete' method='post'>
+      <button class="delete">Delete</button>
+    </form>
+  </section>
+<% end %>

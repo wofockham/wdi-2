@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Butterflies</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/butterflies'>Butterflies</a></li>
+
+          <% @nav_rows.each do |row| %>
+            <li class="family"><a href='/butterflies/<%= row['family'] %>'><em><%= row['family'] %></em> (<%= row['count'] %>)</a></li>
+          <% end %>
+
+          <li><a href='/butterflies/new'>New Butterfly</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
