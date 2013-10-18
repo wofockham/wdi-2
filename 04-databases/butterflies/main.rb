@@ -35,6 +35,7 @@ end
 
 get '/butterflies/:family' do
   query = "SELECT * FROM butterflies WHERE family='#{params[:family]}'"
+  binding.pry
   @rows = query_sql(query)
   erb :butterflies
 end
