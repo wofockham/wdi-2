@@ -3,7 +3,6 @@ require 'sinatra/reloader'
 require 'yahoofinance'
 
 get '/' do
-
   if params[:symbol]
     @symbol = params[:symbol].upcase
     @price = YahooFinance::get_quotes(YahooFinance::StandardQuote, @symbol)[@symbol].lastTrade

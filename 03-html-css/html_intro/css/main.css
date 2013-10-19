@@ -1,0 +1,21 @@
+body {
+  background-color: grey;
+  color: white;
+}
+
+p, a {
+  text-indent: 3em;
+}
+
+.prominent {
+ font-size: 200%;
+}
+
+.liney {
+  text-decoration: line-through;
+}
+
+#logo {
+  color: green;
+}
+
