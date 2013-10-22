@@ -1,0 +1,6 @@
+<h2>Planets</h2>
+<ul>
+  <% @planets.each do |planet| %>
+    <li><%= planet.name%> has <%= pluralize planet.moons, 'moon' %>.</li>
+  <% end %>
+</ul>
