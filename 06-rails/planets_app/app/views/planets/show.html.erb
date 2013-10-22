@@ -1,0 +1,8 @@
+<h2><%= @planet.name %></h2>
+Moons: <%= @planet.moons %>
+<% if @planet.image.present? %>
+  <%= image_tag @planet.image %>
+<% end %>
+
+<%= link_to 'Edit Planet', planet_edit_path(@planet.id) %>
+<%= button_to 'Destroy Planet', planet_delete_path(@planet.id) %>
