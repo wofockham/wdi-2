@@ -1,0 +1,18 @@
+<p>We have <%= pluralize @person_count1, 'person' %> signed up.</p>
+<p>We have <%= pluralize @person_count2, 'person' %> signed up.</p>
+
+<p><%= pluralize 2, 'ox' %></p>
+<p><%= pluralize 3, 'fish' %></p>
+<p><%= pluralize 70, 'virus' %></p>
+<p><%= pluralize 70, 'dice' %></p>
+<p>Error count: <%= pluralize 900, 'error' %></p>
+
+<p><%= truncate @story, {:length => 18, :separator => ' '} %></p>
+
+<ul>
+  <% @numbers.each do |num| %>
+    <li style="background-color: <%= cycle('red', 'green', 'purple') %>">
+      <%= num %>
+    </li>
+  <% end %>
+</ul>
