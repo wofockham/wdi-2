@@ -14,3 +14,10 @@ i3 = Ingredient.create(:name => 'Tortillas', :measurement => 'tortillas', :cost 
 i4 = Ingredient.create(:name => 'Wheat Bread', :measurement => 'loaf', :cost => 3.99, :image => 'http://www.examiner.com/images/blog/EXID24730/images/bread_machine_bread(1).jpg')
 i5 = Ingredient.create(:name => 'Lemon', :measurement => 'lemon', :cost => 0.90, :image => 'http://meadowdevor.squarespace.com/storage/money%20lemons.jpg?__SQUARESPACE_CACHEVERSION=1334154925539')
 i6 = Ingredient.create(:name => 'Butter', :measurement => 'ounce', :cost => 2.50, :image => 'http://upload.wikimedia.org/wikipedia/commons/4/45/NCI_butter.jpg')
+
+b1.recipes = [r1, r2]
+b1.recipes << r3
+
+r1.ingredients = [i1, i2, i3]
+r2.ingredients = [i1, i2, i4, i5, i6]
+r3.ingredients = [i2, i3, i4]
