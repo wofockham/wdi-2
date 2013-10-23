@@ -2,7 +2,7 @@
   <% @books.each do |book| %>
     <li>
       <ul>
-        <li><%= book.title %></li>
+        <li><%= link_to book.title, book_path(book) %></li>
         <li><%= book.cuisine %></li>
         <li><%= book.chef %></li>
         <li><%= image_tag book.image %></li>

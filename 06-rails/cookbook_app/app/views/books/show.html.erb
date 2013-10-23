@@ -1,0 +1,13 @@
+<h2><%= @book.title %></h2>
+<p><%= @book.cuisine %></p>
+<p><%= @book.chef %></p>
+<%= image_tag @book.image %>
+
+<% @book.recipes.each do |recipe| %>
+  <h3><%= recipe.name %></h3>
+  <%= image_tag recipe.image, :class => 'recipe' %>
+  <% recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.name %>
+    <%= image_tag ingredient.image, :class => 'ingredient' %>
+  <% end %>
+<% end %>
