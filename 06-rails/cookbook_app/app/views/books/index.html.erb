@@ -1,0 +1,12 @@
+<ol>
+  <% @books.each do |book| %>
+    <li>
+      <ul>
+        <li><%= book.title %></li>
+        <li><%= book.cuisine %></li>
+        <li><%= book.chef %></li>
+        <li><%= image_tag book.image %></li>
+      </ul>
+    </li>
+  <% end %>
+</ol>
