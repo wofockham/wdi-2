@@ -20,6 +20,12 @@ class BooksController < ApplicationController
     @book = Book.find params[:id]
   end
 
+  def update
+    book = Book.find params[:id]
+    book.update_attributes params[:book]
+    redirect_to book_path(book)
+  end
+
   def destroy
     book = Book.find params[:id]
     book.destroy
