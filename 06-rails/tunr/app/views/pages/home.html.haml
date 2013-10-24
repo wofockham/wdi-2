@@ -1,0 +1,24 @@
+%h1 Hello World!
+%p This is inside a paragraph.
+%span= 3 ** 99
+
+%div
+  %h2 this is heading 2
+  %h3 this is heading 3
+  %p
+    %span span the first
+    %span span the second
+
+%p.happy
+%p#sad
+
+%p.happy.bipolar#sad
+
+%form#my_form.classy{:method => 'post', :action => 'http://www.google.com/'}
+  %input.superclass{:type => 'number', :name => 'mary', :autofocus => true}
+  %input{:type => 'submit'}
+
+- numbers = (0..10).to_a
+- numbers.each do |number|
+  %h4= number * 2
+  %h4= number
