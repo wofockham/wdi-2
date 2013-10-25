@@ -5,5 +5,10 @@ Tunr::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :users
+  resources :users, :except => [:edit] do
+    collection do
+      get 'edit'
+    end
+  end
+
 end

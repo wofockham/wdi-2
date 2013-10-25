@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
-    raise session.inspect
+  end
+
+  def about
   end
 end

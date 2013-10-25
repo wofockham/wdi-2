@@ -11,9 +11,10 @@
 
 <nav>
   <ul>
+    <li>Welcome <%= @authenticated.try(:name) %></li>
     <li><%= link_to('Home', root_path) %></li>
     <li><%= link_to('Create Account', new_user_path) %></li>
-    <li><%= link_to('Login', login_path) %></li>
+    <%== authentication_menu %>
   </ul>
 </nav>
 
