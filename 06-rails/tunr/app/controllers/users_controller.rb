@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :check_if_logged_in, :except => [:new, :create]
+  before_filter :check_if_admin, :only => [:index, :destroy]
+
   def index
-    @users = @authenticated.try(:is_admin?) ? User.all : []
+    @users = User.all
   end
 
   def new
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def create_admin
+  def weatherreport
   end
 
   def edit
@@ -33,5 +36,14 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+  def check_if_logged_in
+    redirect_to(root_path) unless @authenticated.present?
+  end
+
+  def check_if_admin
+    redirect_to(root_path) unless @authenticated.present? && @authenticated.is_admin?
   end
 end
