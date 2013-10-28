@@ -18,6 +18,12 @@
   </ul>
 </nav>
 
+<% if flash[:notice].present? %>
+  <p>
+  <%= flash[:notice] %>
+  </p>
+<% end %>
+
 <%= yield %>
 
 </body>
