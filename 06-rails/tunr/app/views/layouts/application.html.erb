@@ -9,22 +9,50 @@
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li>Welcome <%= @authenticated.try(:name) %></li>
-    <li><%= link_to('Home', root_path) %></li>
-    <li><%= link_to('Create Account', new_user_path) %></li>
-    <%== authentication_menu %>
-  </ul>
-</nav>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'Tunr', root_path, :class => 'navbar-brand' %>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to('Create Account', new_user_path) %></li>
+        <%== authentication_menu %>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
-<% if flash[:notice].present? %>
-  <p>
-  <%= flash[:notice] %>
-  </p>
-<% end %>
 
-<%= yield %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <% if flash[:notice].present? %>
+          <p>
+          <%= flash[:notice] %>
+          </p>
+        <% end %>
+        <%= yield %>
+      </div>
+      <div class="col-md-3">
+        <aside class="about">
+          <h1>BOLD CORPORATE LOGO</h1>
+          <p>Tunr has been providing lorem ipsum aids aids aids</p>
+          <ul>
+            <% (1..10).to_a.each do |link| %>
+              <li><%= link_to "Link #{link}", root_path %></li>
+            <% end %>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

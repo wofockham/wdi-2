@@ -1,29 +1,11 @@
-nav {
+body {
+  margin-top: 60px;
+}
+
+aside.about {
   background-color: pink;
-  padding: 1em;
-}
-
-nav ul {
-  list-style: none;
-  margin-left: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 1em;
-}
-
-nav ul li a {
   color: white;
-  text-decoration: none;
-}
-
-nav ul li a:hover {
-  text-shadow: 0 0 15px red;
-}
-
-input, label {
-  display: block;
-  margin: auto;
-  width: 299px;
+  border-radius: 1em;
+  padding: 1em;
+  margin-top: 4em;
 }
