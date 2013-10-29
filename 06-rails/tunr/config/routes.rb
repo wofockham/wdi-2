@@ -10,5 +10,4 @@ Tunr::Application.routes.draw do
       get 'edit'
     end
   end
-
 end
