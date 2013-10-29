@@ -1,0 +1,15 @@
+<%= form_tag '/artist_facts/update_all', :method => 'post' do %>
+  <% @artist_facts.each do |artist_fact| %>
+    <%= fields_for 'artist_fact[]', artist_fact do |f| %>
+      <div class="form-group">
+        <%= f.label :fact %>
+        <%= f.text_field :fact %>
+      </div>
+      <div class="form-group">
+        <%= f.label :website %>
+        <%= f.text_field :website %>
+      </div>
+    <% end %>
+  <% end %>
+  <%= submit_tag %>
+<% end %>

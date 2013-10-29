@@ -15,6 +15,13 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      # You can pre-create these things for later editing.
+      # fact1 = ArtistFact.create(:artist_id => @user.id)
+      # fact2 = ArtistFact.create(:artist_id => @user.id)
+      # fact3 = ArtistFact.create(:artist_id => @user.id)
+      # fact4 = ArtistFact.create(:artist_id => @user.id)
+      # fact5 = ArtistFact.create(:artist_id => @user.id)
+
       redirect_to root_path
     else
       render :new
