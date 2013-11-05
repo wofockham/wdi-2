@@ -11,8 +11,27 @@
 
     <h1>Melbourne Cup Sweep</h1>
 
-    <ul id="players">
-    </ul>
+    <div id="field_display">
+      <h2>Price</h2>
+      <form id="price_form">
+        $<input type="number" id="price" placeholder="Enter ticket price" value="1">
+        <button>Update</button>
+      </form>
+
+      <h2>Prizes</h2>
+      <ul id="prizes">
+      </ul>
+
+      <h2>Field</h2>
+      <ul id="field">
+      </ul>
+    </div>
+
+    <div id="players_display">
+      <h2>Players</h2>
+      <ul id="players">
+      </ul>
+    </div>
 
     <form id="add_player_form">
       <input type="text" id="player_name" placeholder="Insert player name here">
