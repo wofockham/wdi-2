@@ -8,6 +8,7 @@ $(document).ready(function () {
 });
 
 var numbers = [];
+var timerID = null;
 
 var add_number = function () {
   var number = parseInt( $('#number').val() );
@@ -46,4 +47,18 @@ var display_number_box = function (n) {
   $box.addClass('box');
   $box.text( n );
   $('#boxes').prepend($box);
+};
+
+var start_timer = function () {
+  timerID = setInterval(generate_random_number, 500);
+};
+
+var stop_timer = function () {
+  clearInterval(timerID);
+};
+
+var generate_random_number = function () {
+  var number = _.random(0, 1000);
+  numbers.push(number);
+  display_number_box(number);
 };
