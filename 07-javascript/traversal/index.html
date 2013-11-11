@@ -4,23 +4,26 @@
   <title>Traversal</title>
   <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="js/traversal.js"></script>
+  <link rel="stylesheet" href="css/traversal.css">
 </head>
 <body>
 
-  <div class="one">1a</div>
-  <div class="one">1b</div>
-  <div class="one">1c</div>
+  <h1>jQuery Traversal</h1>
 
-  <div class="two">2a</div>
-  <div class="two">2b</div>
+  <div class="one" id="a">1a</div>
+  <div class="one" id="b">1b</div>
+  <div class="one" id="c">1c</div>
 
-  <div class="list">
+  <div class="two" id="d">2a</div>
+  <div class="two" id="e">2b</div>
+
+  <div class="list" id="f">
     <ul>
-      <li>a</li>
-      <li>b</li>
-      <li>c</li>
-      <li>
-        <p><span>Super deep nesting</span></p>
+      <li id="g">a<button>click me</button></li>
+      <li id="h">b<p><button>click me</button></p></li>
+      <li id="i">c<button>click me</button></li>
+      <li id="j">
+        <p id="k"><span id="l">Super deep nesting<button>click me</button></span></p>
       </li>
     </ul>
   </div>
