@@ -1,0 +1,19 @@
+#container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.box {
+  border: 1px solid #000;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.pixel {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  float: left;
+  border: 1px dashed black;
+}
