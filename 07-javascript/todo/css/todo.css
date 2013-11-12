@@ -11,10 +11,15 @@ body {
   padding: 1em;
 }
 
-form {
+#new_task {
   text-align: right;
 }
 
 #description {
-  width: 100%;
+  width: 99%;
+  font-size: 200%;
+  margin: 1em 0;
+  border-radius: 0.2em;
+  padding: 0.5em 0;
+  text-align: center;
 }
