@@ -17,10 +17,23 @@
       <input type="text" id="description" placeholder="Enter your task description">
       <button id="create_task">Create Task</button>
     </div>
-  </div>
 
-<script type="text/underscore-template">
-  <div class="task">
+    <div id="tasks">
+    </div>
+
+    <div id="completed_tasks">
+      <h2>Completed Tasks</h2>
+    </div>
+  </div><!-- #container -->
+
+<script type="text/underscore-template" id="task_template">
+  <div class="task" data-task-id="<%= id %>">
+    <p><%= description %></p>
+    <p class="date">Created at: <%= creationTime %></p>
+    <div class="controls">
+      <button class="completed">Completed</button>
+      <button class="delete">Delete</button>
+    </div>
   </div>
 </script>
 

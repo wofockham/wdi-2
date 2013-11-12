@@ -1,5 +1,14 @@
 body {
   background-color: #444;
+  font-family: Arial;
+}
+
+h1 {
+  color: #999;
+  font-size: 400%;
+  text-shadow: 0 0 20px black;
+  font-family: Arial;
+  text-align: center;
 }
 
 #container {
@@ -22,4 +31,42 @@ body {
   border-radius: 0.2em;
   padding: 0.5em 0;
   text-align: center;
+}
+
+#create_task {
+  font-size: 200%;
+  padding: 0.5em 1em;
+  color: purple;
+}
+
+#tasks {
+  margin-top: 1.5em;
+}
+
+.task {
+  background-color: #bbb;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+}
+
+.task.done {
+  opacity: 0.5;
+}
+
+.controls {
+  text-align: right;
+}
+
+.controls .completed {
+  color: green;
+}
+
+.controls .delete {
+  color: red;
+}
+
+.task .date {
+  color: #ddd;
+  text-align: right;
 }
