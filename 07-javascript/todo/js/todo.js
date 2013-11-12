@@ -3,15 +3,14 @@ var todo = {
 
   nextID: 666,
 
+  // Creates a new task, adds it to the task array and returns it.
   create_task: function (description) {
-    console.log('creating new task:', description);
-
     var task = {
       description: description,
       creationTime: (new Date()).toString(),
       completed: false,
       id: this.nextID++,
-      /* Let's attach the show() behaviour to the task directly. */
+      /* For convenience, we'll attach show() behaviour to the task directly. */
       show: function () {
         var template = $('#task_template').html();
         var task_templater = _.template( template );
@@ -19,6 +18,7 @@ var todo = {
       }
     };
 
+    // Add the task to the task "tracker."
     this.tasks[task.id] = task;
     return task;
   }
@@ -26,6 +26,7 @@ var todo = {
 
 $(document).ready(function () {
 
+  // We can save this description element so we can reuse it.
   var $description = $('#description');
 
   $('#create_task').click(function () {
@@ -48,10 +49,15 @@ $(document).ready(function () {
     $task.addClass('done');
   });
 
+  // Uncomplete a task.
   $('#completed_tasks').on('click', '.completed', function () {
     var $task = $(this).closest('.task');
     var task_id = $task.data('task-id');
+
+    // Updating the "database".
     todo.tasks[task_id].completed = false;
+
+    // Updating the page.
     $('#tasks').append($task);
     $task.removeClass('done');
     $task.find('.completed').text('Completed');
@@ -60,9 +66,13 @@ $(document).ready(function () {
   $('#tasks, #completed_tasks').on('click', '.delete', function () {
     var $task = $(this).closest('.task');
     var task_id = $task.data('task-id');
+
+    // Updating the "database".
     delete todo.tasks[task_id];
+
+    // Updating the page.
     $task.fadeOut(function () {
-      $task.remove();
+      $task.remove(); // Remove once the fadeOut is complete.
     });
   });
 
