@@ -12,11 +12,19 @@ get '/random' do
 end
 
 get '/random.json' do
-  @random = rand(1000)
+  max = params[:max_rand]
 
+  max = 1000 unless max
+
+  @random = rand(max.to_i)
   content_type :json
   result = {
     :random => @random
   }
   result.to_json
+end
+
+get '/random.html' do
+  @random = rand(1000)
+  "<span>#{@random}</span>"
 end
