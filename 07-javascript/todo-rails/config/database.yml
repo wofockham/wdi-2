@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: todo-rails_development
+  pool: 5
+  host: localhost
+  username: inceptor
+  password:
