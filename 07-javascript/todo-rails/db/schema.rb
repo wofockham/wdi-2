@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113225956) do
+ActiveRecord::Schema.define(:version => 20131114010952) do
 
   create_table "priorities", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20131113225956) do
     t.integer  "user_id"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.integer  "value",      :default => 1
   end
 
   create_table "tasks", :force => true do |t|
