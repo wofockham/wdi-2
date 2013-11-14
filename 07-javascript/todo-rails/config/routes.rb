@@ -5,5 +5,5 @@ TodoRails::Application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :priorities, :only => [:index]
+  resources :priorities, :only => [:index, :create]
 end

@@ -1,3 +1,17 @@
+.invisible {
+  display: none;
+}
+
 body {
   margin-top: 60px;
+}
+
+.color {
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+  margin: 0 5px 5px 0;
+  display: block;
+  overflow: hidden;
+  text-indent: -9999999em;
 }
