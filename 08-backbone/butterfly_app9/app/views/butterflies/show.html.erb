@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @butterfly.name %>
+</p>
+
+<p>
+  <b>Latin name:</b>
+  <%= @butterfly.latin_name %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @butterfly.picture %>
+</p>
+
+
+<%= link_to 'Edit', edit_butterfly_path(@butterfly) %> |
+<%= link_to 'Back', butterflies_path %>

@@ -1,0 +1,11 @@
+<h1>New butterfly</h1>
+
+<div id="butterfly_list">
+  <% @butterflies.each do |butterfly| %>
+    <p><%= butterfly.name %> <i><%= butterfly.latin_name %></i></p>
+  <% end %>
+</div>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', butterflies_path %>

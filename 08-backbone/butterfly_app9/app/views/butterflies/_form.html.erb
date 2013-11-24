@@ -1,0 +1,29 @@
+<%= form_for(@butterfly, :remote => true, :html => {:"data-type" => 'json' }) do |f| %>
+  <% if @butterfly.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@butterfly.errors.count, "error") %> prohibited this butterfly from being saved:</h2>
+
+      <ul>
+      <% @butterfly.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :latin_name %><br />
+    <%= f.text_field :latin_name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= f.text_area :picture %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
