@@ -46,6 +46,7 @@ class ButterfliesController < ApplicationController
     respond_to do |format|
       if @butterfly.save
         format.html { redirect_to @butterfly, notice: 'Butterfly was successfully created.' }
+        format.js
         format.json { render json: @butterfly, status: :created, location: @butterfly }
       else
         format.html { render action: "new" }
