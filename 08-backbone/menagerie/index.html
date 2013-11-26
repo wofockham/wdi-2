@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>Menagerie Demo</title>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/handlebars-v1.1.2.js"></script>
+  <script src="js/menagerie.js"></script>
 </head>
 <body>
+
+  <div id="main"></div>
+  <ul id="muppets"></ul>
+
+  <script id="muppet-template" type="text/x-handlebars-template">
+    <h1>Welcome to the Muppet Theatre!</h1>
+  </script>
+  <script id="animal-template" type="text/x-handlebars-template">
+    <p>The {{type}} lives in the {{ecosystem}}</p>
+  </script>
 
 </body>
 </html>
