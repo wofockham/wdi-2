@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Backbone Blog</title>
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/underscore.js"></script>
+  <script src="js/backbone.js"></script>
+  <script src="js/handlebars-v1.1.2.js"></script>
+
+</head>
+<body>
+
+  <div id="main"></div>
+  <a href="#">home</a>
+
+  <script id="app-template" type="text/x-handlebars-template">
+    <h1>Recent Posts</h1>
+    <ul id="posts">
+    </ul>
+  </script>
+
+  <script id="blog-list-template" type="text/x-handlebars-template">
+    {{ title }}
+  </script>
+
+  <script id="blog-view-template" type="text/x-handlebars-template">
+    <div class="post">
+      <h1>{{ title }}</h1>
+      <h3>{{ slug }}</h3>
+      <div class="content">
+        {{{ content }}}
+      </div>
+    </div>
+  </script>
+<script src="js/backbone/models/Post.js"></script>
+<script src="js/backbone/views/AppView.js"></script>
+<script src="js/backbone/views/PostListView.js"></script>
+<script src="js/backbone/views/PostView.js"></script>
+<script src="js/backbone/AppRouter.js"></script>
+<script src="js/backbone/blogApp.js"></script>
+</body>
+</html>
