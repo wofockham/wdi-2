@@ -1,0 +1,22 @@
+  <div id="main"></div>
+  <a href="#">home</a>
+
+  <script id="app-template" type="text/x-handlebars-template">
+    <h1>Recent Posts</h1>
+    <ul id="posts">
+    </ul>
+  </script>
+
+  <script id="blog-list-template" type="text/x-handlebars-template">
+    {{ title }}
+  </script>
+
+  <script id="blog-view-template" type="text/x-handlebars-template">
+    <div class="post">
+      <h1>{{ title }}</h1>
+      <h3>{{ slug }}</h3>
+      <div class="content">
+        {{{ content }}}
+      </div>
+    </div>
+  </script>
