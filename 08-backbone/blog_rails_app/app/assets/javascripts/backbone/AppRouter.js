@@ -3,7 +3,7 @@ var blogApp = blogApp || {};
 blogApp.AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'posts/:slug': 'getPost'
+    'posts/:id': 'getPost'
   },
 
   index: function () {
@@ -11,10 +11,14 @@ blogApp.AppRouter = Backbone.Router.extend({
     appView.render();
   },
 
-  getPost: function (slug) {
-    var post = blogApp.posts.get(slug);
+  getPost: function (id) {
+    var post = blogApp.posts.get(id);
     var view = new blogApp.PostView({ model: post });
-    view.render();
+    post.fetch({
+      success: function () {
+        view.render();
+      }
+    });
   },
 
   // This one's for you, Riana

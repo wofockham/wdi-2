@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
   <title>BlogRailsApp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
@@ -9,6 +10,45 @@
 
 <%= yield %>
 
+<script id="app-template" type="text/x-handlebars-template">
+  <h1>Recent Posts</h1>
+  <ul id="posts">
+  </ul>
+</script>
+
+<script id="blog-list-template" type="text/x-handlebars-template">
+  {{ title }}
+</script>
+
+<script id="blog-view-template" type="text/x-handlebars-template">
+  <div class="post">
+    <h1>{{ title }}</h1>
+    <h3>{{ slug }}</h3>
+    <div class="content">
+      {{{ content }}}
+    </div>
+    <h2>Comments</h2>
+    <form id="comment_form">
+      <div>
+        <input type="text" id="author" placeholder="Your name">
+      </div>
+      <div>
+        <textarea id="blather" placeholder="Your comment goes here"></textarea>
+      </div>
+      <input type="submit" value="Post comment" id="submit">
+    </form>
+    <div class="comments">
+      {{#each comments}}
+        <div class="comment">
+          <p>{{ blather }}</p>
+          <small>{{ author }}</small>
+        </div>
+      {{else}}
+        <p>No comments</p>
+      {{/each}}
+    </div>
+  </div>
+</script>
 <%= javascript_include_tag "application" %>
 </body>
 </html>

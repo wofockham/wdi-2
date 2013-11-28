@@ -14,6 +14,6 @@ blogApp.PostListView = Backbone.View.extend({
     return this;
   },
   viewPost: function () {
-    blogApp.router.navigate('posts/' + this.model.get('slug'), true);
+    blogApp.router.navigate('posts/' + this.model.get('id'), true);
   }
 });

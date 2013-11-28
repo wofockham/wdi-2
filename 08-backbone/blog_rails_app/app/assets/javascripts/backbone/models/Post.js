@@ -1,14 +1,16 @@
 var blogApp = blogApp || {};
 
 blogApp.Post = Backbone.Model.extend({
-  idAttribute: 'slug',
+  //idAttribute: 'slug',
+  urlRoot: '/posts',
   defaults: {
     title: 'Untitled Post',
     slug: 'untitled-post',
-    content: 'Lorem ipsum'
+    content: 'Loading...'
   }
 });
 
 blogApp.Posts = Backbone.Collection.extend({
-  model: blogApp.Post
+  model: blogApp.Post,
+  url: '/posts'
 });
