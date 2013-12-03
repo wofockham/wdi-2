@@ -21,6 +21,11 @@
 </script>
 
 <script id="blog-view-template" type="text/x-handlebars-template">
+
+  <div class="error">
+    You are our 100,000 visitor! CLICK FOR YOUR FREE iPAD
+  </div>
+
   <div class="post">
     <h1>{{ title }}</h1>
     <h3>{{ slug }}</h3>
@@ -28,16 +33,8 @@
       {{{ content }}}
     </div>
     <h2>Comments</h2>
-    <form id="comment_form">
-      <input type="hidden" id="post_id" value="{{ id }}">
-      <div>
-        <input type="text" id="author" placeholder="Your name">
-      </div>
-      <div>
-        <textarea id="blather" placeholder="Your comment goes here"></textarea>
-      </div>
-      <input type="submit" value="Post comment" id="submit">
-    </form>
+    <div id="comment_form">
+    </div>
     <div class="comments">
       {{#each comments}}
         <div class="comment">
@@ -51,5 +48,6 @@
   </div>
 </script>
 <%= javascript_include_tag "application" %>
+<script src="https://rawgithub.com/powmedia/backbone-forms/master/distribution/backbone-forms.min.js"></script>
 </body>
 </html>

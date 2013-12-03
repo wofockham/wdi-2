@@ -13,7 +13,21 @@
     <div>
       <h1>{{ title }}</h1>
       <h4>{{ date }}</h4>
-      <p>{{ body }} </p>
+
+      {{#if author}}
+        <h2>{{ fullname author.first_name author.last_name }}</h2>
+      {{ else }}
+        <h2>Anonymous</h2>
+      {{/if}}
+      <p>{{{ body }}} </p>
+
+      <ol>
+      {{#each comments}}
+        <li>{{ body }} <i>{{ created_at }}</i></li>
+      {{else}}
+        <li>No comments</li>
+      {{/each}}
+      </ol>
     </div>
   </script>
 </body>

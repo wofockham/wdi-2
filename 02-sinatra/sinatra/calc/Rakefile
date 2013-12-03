@@ -1,0 +1,17 @@
+task :default => [:stat]
+
+desc "Runs the server"
+task :server do
+  ruby "calc.rb"
+end
+
+desc "Clean up temporary files"
+task :cleanup do
+  sh "rm tmp/*"
+end
+
+desc "Shows git status"
+task :stat do
+  sh "clear"
+  sh "git status"
+end

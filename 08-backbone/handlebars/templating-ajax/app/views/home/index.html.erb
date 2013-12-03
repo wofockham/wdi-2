@@ -1,0 +1,18 @@
+  <div id="center-content">
+    <h1>Countries of the world</h1>
+    <!--
+    <p>
+      <input type="text" id="step-input" size="3" maxlength="3" value="5"> at a time 
+      <input type="button" value="Populate" id="populate-button"> 
+      <input type="button" value="Reset" id="reset-button"> 
+      <input type="button" value="All Data" id="all-button">
+    </p>
+    -->
+    
+    <div id="content" class="f32">
+
+      <%= render partial: 'country', collection: @countries %>
+
+    </div>
+
+  </div>

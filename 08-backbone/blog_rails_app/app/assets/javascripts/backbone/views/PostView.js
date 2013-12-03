@@ -3,12 +3,16 @@ var blogApp = blogApp || {};
 blogApp.PostView = Backbone.View.extend({
   el: $('#main'),
   events: {
-    "submit #comment_form": "add_comment"
+    //"submit #comment_form": "add_comment"
   },
   initialize: function () {},
   render: function () {
     var template = Handlebars.compile(blogApp.templates.blogView);
     this.$el.html( template(this.model.toJSON()) );
+    var comment = new blogApp.Comment();
+    comment.set('post_id', this.model.get('id'));
+    var form = new Backbone.Form({ model: comment }).render();
+    $('#comment_form').html( form.el );
   },
   add_comment: function (event) {
     event.preventDefault();

@@ -32,6 +32,7 @@ var clear_colors = function () {
 }
 
 var paint = function (event) {
+  console.log(event);
   var color = $('#selected').css('background-color');
   $(this).css('background-color', color);
 }

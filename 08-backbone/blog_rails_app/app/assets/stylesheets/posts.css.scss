@@ -1,3 +1,75 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$link-color: #334455;
+$center: auto;
+$base-padding: 30px;
+$left: 90px;
+
+@mixin content {
+  font-size: 12px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+@mixin indent {
+  margin-left: $left;
+  padding-left: 0;
+}
+
+body a,
+body a:visited {
+  color: $link-color;
+}
+
+#posts {
+  li {
+    cursor: pointer;
+    color: $link-color * 2;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post {
+  padding: 0 $base-padding;
+  h2 {
+    margin: $center;
+    padding: $base-padding / 2;
+  }
+  h3 {
+    font-size: 10px;
+    font-style: italic;
+    text-align: center;
+    color: $link-color;
+  }
+
+  .content {
+    font-size: 14px;
+    margin-top: 30px;
+
+    @include indent;
+
+    &:hover {
+      font-style: italic;
+    }
+
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+
+.notification {
+  border: 1px solid #999;
+  font-size: 10px;
+}
+
+.success {
+  @extend .notification;
+  color: yellow;
+}
+
+.error {
+  @extend .notification;
+  color: red;
+}
