@@ -4,7 +4,7 @@ describe FruitsController do
 
   describe "GET :index from /fruits" do
     before do
-      3.times { |i| Fruit.create(:name => "Fruit Number #{i}") }
+      FactoryGirl.create_list(:fruit, 3)
     end
 
     describe "as HTML" do
@@ -25,7 +25,7 @@ describe FruitsController do
         expect(assigns(:fruits)).to be # Thanks, Shakespeare
         expect(assigns(:fruits).length).to eq(3)
         expect(assigns(:fruits).first.class).to eq(Fruit)
-        expect(assigns(:fruits).first.name).to eq("Fruit Number 2")
+        expect(assigns(:fruits)).to match_array(Fruit.all.reverse)
       end
     end
 
@@ -50,7 +50,7 @@ describe FruitsController do
       it "should include the name of the fruit in the JSON" do
         fruits = JSON.parse(response.body)
         expect(fruits.length).to eq(3)
-        expect(fruits.first["name"]).to eq("Fruit Number 2")
+        expect(fruits.first["name"]).to eq(Fruit.last.name)
       end
 
     end
@@ -59,16 +59,16 @@ describe FruitsController do
   describe "POST :create to /fruits" do
     describe "a fruit with a name" do
       before do
-        post :create, { :name => "Strawberry" }
+        post :create, :fruit => { :name => "Strawberry" }
       end
 
       it "should redirect to the show action" do
-      end
-
-      it "should render the show template" do
+        expect(response.status).to eq(302)
+        expect(response).to redirect_to(fruit_path(assigns(:fruit)))
       end
 
       it "should increase the number of Fruits" do
+        expect(Fruit.count).to eq(1)
       end
     end
 
@@ -78,12 +78,16 @@ describe FruitsController do
       end
 
       it 'should give us a 200 success' do
+        expect(response.status).to eq(200)
+        expect(response).to be_success
       end
 
       it "should render the new template" do
+        expect(response).to render_template("new")
       end
 
       it "should not increase the number of Fruits" do
+        expect(Fruit.count).to eq(0)
       end
     end
   end
